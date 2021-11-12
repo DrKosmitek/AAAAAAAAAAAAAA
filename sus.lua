@@ -13,14 +13,14 @@
 local LoopRetryDelaySeconds = 10
 local MaxLoopsThenDoTPSame = 5
 local DelaySeconds = 1
-local ServerListLimit = 500
+local ServerListLimit = 11100
 local SkipPlayerKick = false
 local TeleportSameServerIfRequestFails = true
 
 function RejoinNewServer(teleportDelay: number,serverLimit: number,skipKick: boolean,teleportSameSvrOnReqFail: boolean)
 	teleportDelay = teleportDelay or 1
-	serverLimit = serverLimit or 2
-	serverLimit = math.clamp(serverLimit,1,2) -- rbx api won't allow more than 100
+	serverLimit = serverLimit or 3
+	serverLimit = math.clamp(serverLimit,1,3) -- rbx api won't allow more than 100
 	local url = ("https://games.roblox.com/v1/games/%s/servers/Public?sortOrder=Asc&limit=%s"):format(game.PlaceId,tostring(serverLimit))
 
 	-- afaik this will only work with: synapse, script-ware, krnl, and protosmasher. or it will default to the rbx http get. 
